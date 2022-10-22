@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { main } from "../helper_functions/main";
 import { Power } from "./gauges/power";
+import { SpeedTest } from "./gauges/speed-test";
 
 const Popup = (props) => {
   function test() {
@@ -19,6 +20,9 @@ const Popup = (props) => {
 
   return (
     <>
+      <div className="md:col-span-2 border-t p-4">
+        <SpeedTest />
+      </div>
       <div className="p-4 flex items-center justify-center border-t md:border-l md:border-t-0">
         <Power value={60} />
       </div>
