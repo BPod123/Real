@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { main } from "../helper_functions/main";
 import { Power } from "./gauges/power";
@@ -32,7 +32,7 @@ const Popup = (props) => {
         <Form.Control
           className="phrase-input mx-auto my-3"
           size="sm"
-          placeholder="Enter phrase"  
+          placeholder="Enter phrase"
           type="text"
           maxLength={50 * 10} // max 50 words
         />
