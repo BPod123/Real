@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import "./external_css/tailwinds";
+// import "./external_css/tailwinds";
 import Popup from "./components/Popup";
 
 function App() {

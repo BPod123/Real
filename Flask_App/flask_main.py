@@ -5,7 +5,7 @@ from flask import request
 
 # @app.route("/newsHeadline", methods=["POST"])
 # def fakeNewsDetection():
-#     # headline = request.json['title']
+#     # headline = request.json['title']    
 #     return {headline: "You are fake"}
 
 @app.route("/test", methods=["GET"])

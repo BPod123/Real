@@ -1,12 +1,14 @@
+const axios = require('axios').default;
+
 export const main = () => {
 
   // document.body.innerHTML = window.getSelection().toString();
 
 
-
+  
   function handlePostQuery(header){
 
-    if (header != "") {
+    if (header !== "") {
         axios.post('http://localhost:8000/header', header)
             .then(function(response){
                 console.log(response);
