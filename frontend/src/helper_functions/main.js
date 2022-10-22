@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-export const main = () => {
+export const main = (setTruthiness) => {
 
   // document.body.innerHTML = window.getSelection().toString();
 
