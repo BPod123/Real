@@ -20,12 +20,22 @@ const Popup = (props) => {
   }
 
   return (
-    <div id="popup">
+    <div id="popup" className="py-2 text-center">
+      <p className="opening">This phrase is probably</p>
+      <div className="verdict mx-auto p-2 m-1">
+        <p>FAKE NEWS</p>
+      </div>
       <div className="flex items-center justify-center">
         <Power value={60} />
       </div>
       <Form>
-        <Form.Control size="sm" type="text" placeholder="Enter phrase" />
+        <Form.Control
+          className="phrase-input mx-auto my-3"
+          size="sm"
+          placeholder="Enter phrase"  
+          type="text"
+          maxlength={50 * 10} // max 50 words
+        />
       </Form>
       <Button className="submit" onClick={test}>
         Send alert
