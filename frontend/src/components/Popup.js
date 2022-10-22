@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { main } from "../helper_functions/main";
 import { Power } from "./gauges/power";
 import { SpeedTest } from "./gauges/speed-test";
+import { Button, Form } from "react-bootstrap";
 
 const Popup = (props) => {
   function test() {
@@ -19,12 +20,17 @@ const Popup = (props) => {
   }
 
   return (
-    <>
-      <div className="p-4 flex items-center justify-center border-t md:border-l md:border-t-0">
+    <div id="popup">
+      <div className="flex items-center justify-center">
         <Power value={60} />
       </div>
-      <button onClick={test}>Send alert</button>
-    </>
+      <Form>
+        <Form.Control size="sm" type="text" placeholder="Enter phrase" />
+      </Form>
+      <Button className="submit" onClick={test}>
+        Send alert
+      </Button>
+    </div>
   );
 };
 

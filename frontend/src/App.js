@@ -4,7 +4,7 @@ import Popup from "./components/Popup";
 
 function App() {
   return (
-    <div className="App" id="app">
+    <div className="App d-flex justify-content-center" id="app">
       <Popup />
     </div>
   );
