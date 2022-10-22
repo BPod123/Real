@@ -85,7 +85,7 @@ class Controller(object):
         breakpoint()
 
 if __name__ == '__main__':
-    c = Controller('123')
+    c = Controller(6000)
     result = c.evaluate_headline("The sky is falling!")
     fake_headlines = [
         "Pentagon Warns Chinese Landmass Could Break Off And Zoom Across The Ocean To Get Us",
@@ -94,6 +94,31 @@ if __name__ == '__main__':
         "Calling All Chicago-Area Worms: I Started A Worm Club To Meet Other Worms",
         "Amazon Unveils New AmazonBasics Human Infant"
     ]
+    real_headlines = [
+        "Federal appeals court temporarily blocks Biden's student debt forgiveness program",
+        "6 dead in apartment fire in Wisconsin",
+        "Five years after Hurricane Maria, Puerto Rico’s power grid is still costly and unreliable",
+        "China shuffles leadership committee and retains many Xi allies"
+    ]
+    realFake = {True: "Real", False: "Fake"}
+    result_string = lambda headline, result, actual:\
+        f"{headline}\nOutput: {result}\nPrediction: {realFake[1 - round(result)]}\tTruth: {realFake[actual]}\n\n"
+    correct = 0
+    incorrect = 0
     for headline in fake_headlines:
         result = c.evaluate_headline(headline)
-        print(f"{headline}\nOutput: {result}\nPrediction: {'Real' if round(result) == 0 else 'Fake'}\n\n")
+        correct += round(result)
+        incorrect += 1 - round(result)
+        print(result_string(headline, result, False))
+    for headline in real_headlines:
+        result = c.evaluate_headline(headline)
+        correct += 1 - round(result)
+        incorrect += round(result)
+        print(result_string(headline, result, True))
+    print(f"Correct: {correct}/{correct + incorrect}\tIncorrect: {incorrect}/{correct + incorrect}")
+    test = lambda x: (round(c.evaluate_headline(x)), c.evaluate_headline(x))
+    while True:
+        headline = input('Try a headline or type \'q\' to quit\n')
+        if headline == 'q':
+            break
+        print(test(headline))
