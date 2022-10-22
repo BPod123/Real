@@ -34,7 +34,7 @@ const Popup = (props) => {
           size="sm"
           placeholder="Enter phrase"  
           type="text"
-          maxlength={50 * 10} // max 50 words
+          maxLength={50 * 10} // max 50 words
         />
       </Form>
       <Button className="submit" onClick={test}>
