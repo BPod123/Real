@@ -116,9 +116,10 @@ if __name__ == '__main__':
         incorrect += round(result)
         print(result_string(headline, result, True))
     print(f"Correct: {correct}/{correct + incorrect}\tIncorrect: {incorrect}/{correct + incorrect}")
-    test = lambda x: (round(c.evaluate_headline(x)), c.evaluate_headline(x))
     while True:
         headline = input('Try a headline or type \'q\' to quit\n')
         if headline == 'q':
             break
-        print(test(headline))
+        result = (round(c.evaluate_headline(headline)), c.evaluate_headline(headline))
+        prediction = realFake[1 - result[0]]
+        print(f"Prediction: {prediction}\tOutput: {result[1]}")
