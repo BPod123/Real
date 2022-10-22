@@ -6,6 +6,8 @@ import { SpeedTest } from "./gauges/speed-test";
 import { Button, Form } from "react-bootstrap";
 
 const Popup = (props) => {
+  const [truthiness, setTruthiness] = useState(0.75);
+
   function test() {
     /* eslint-disable no-undef */
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -13,7 +15,7 @@ const Popup = (props) => {
       chrome.scripting.executeScript({
         target: { tabId: activeTabId },
         function: () => {
-          main();
+          main(setTruthiness);
         },
       });
     });
@@ -26,7 +28,7 @@ const Popup = (props) => {
         <p>FAKE NEWS</p>
       </div>
       <div className="flex items-center justify-center">
-        <Power value={60} />
+        <Power value={truthiness * 100} />
       </div>
       <Form>
         <Form.Control

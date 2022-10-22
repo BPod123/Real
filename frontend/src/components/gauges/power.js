@@ -4,6 +4,7 @@ import { useGauge } from "use-gauge";
 
 export function Power(props) {
   const { value } = props;
+
   const gauge = useGauge({
     domain: [0, 100],
     startAngle: 90,
@@ -13,7 +14,7 @@ export function Power(props) {
   });
 
   const needle = gauge.getNeedleProps({
-    value,
+    value: value,
     baseRadius: 8,
     tipRadius: 2,
   });
