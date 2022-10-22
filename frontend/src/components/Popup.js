@@ -4,9 +4,11 @@ import { main } from "../helper_functions/main";
 import { Power } from "./gauges/power";
 import { SpeedTest } from "./gauges/speed-test";
 import { Button, Form } from "react-bootstrap";
+import { SCALE_COLORS, TRUTH_STRING } from "../constants";
 
 const Popup = (props) => {
-  const [truthiness, setTruthiness] = useState(0.75);
+  const [truthiness, setTruthiness] = useState(0.1);
+  const truthColor = SCALE_COLORS[Math.floor(truthiness * SCALE_COLORS.length)];
 
   function test() {
     /* eslint-disable no-undef */
@@ -22,14 +24,23 @@ const Popup = (props) => {
   }
 
   return (
-    <div id="popup" className="py-2 text-center">
-      <p className="opening">This phrase is probably</p>
-      <div className="verdict mx-auto p-2 m-1">
-        <p>FAKE NEWS</p>
-      </div>
-      <div className="flex items-center justify-center">
-        <Power value={truthiness * 100} />
-      </div>
+    <div id="popup" className="py-3 text-center">
+      {truthiness === -1 ? (
+        <h1 className="question">FakeNews Detector</h1>
+      ) : (
+        <>
+          <p className="opening">This phrase is likely</p>
+          <div
+            className="verdict mx-auto p-2 m-1"
+            style={{ backgroundColor: truthColor }}
+          >
+            <p>{TRUTH_STRING[Math.floor(truthiness * TRUTH_STRING.length)]}</p>
+          </div>
+          <div className="flex items-center justify-center">
+            <Power value={truthiness * 100} />
+          </div>
+        </>
+      )}
       <Form>
         <Form.Control
           className="phrase-input mx-auto my-3"
@@ -40,7 +51,7 @@ const Popup = (props) => {
         />
       </Form>
       <Button className="submit" onClick={test}>
-        Send alert
+        Evaluate
       </Button>
     </div>
   );

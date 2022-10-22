@@ -91,3 +91,8 @@ Others
   border-radius: 10px;
   font-weight: bold;
 }
+
+#popup .question {
+  color: white;
+  font-weight: bold;
+}
