@@ -1,18 +1,22 @@
-const axios = require('axios').default;
+import axios from 'axios';
 
-export const main = (setTruthiness) => {
+
+export const main = () => {
 
   // document.body.innerHTML = window.getSelection().toString();
-
-
   
-  function handlePostQuery(header){
-
+  
+  function getReading(header){
+    console.log(header)
+    console.log(axios);
+    // setTruthiness(0.5)
     if (header !== "") {
         axios.post('http://localhost:8000/header', header)
             .then(function(response){
                 console.log(response);
+                console.log('tomato');
                 document.body.innerHTML = "response"
+                
        //Perform action based on response
         })
         .catch(function(error){
@@ -24,7 +28,7 @@ export const main = (setTruthiness) => {
     }
   }
 
-  handlePostQuery({"poly": "helloooo"});
+  getReading({"poly": "helloooo"});
 
 
   console.log(2323);

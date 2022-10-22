@@ -18,9 +18,15 @@ const Popup = (props) => {
         target: { tabId: activeTabId },
         function: () => {
           main(setTruthiness);
+          console.log("cat");
         },
       });
     });
+  }
+
+  function test2() {
+    console.log(222);
+    main()
   }
 
   return (
