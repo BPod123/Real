@@ -1,20 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { main } from "./helper_functions/main";
 
 function App() {
-
-  function test(){
+  function test() {
     /* eslint-disable no-undef */
-    chrome.tabs.query({active: true, currentWindow:true}, tabs=>{
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const activeTabId = tabs[0].id;
-      chrome.scripting.executeScript(
-        {
-          target: {tabId: activeTabId},
-          //function: ()=>alert("React chrome extension alert")
-          function: ()=>{document.body.innerHTML = "Hello World"; console.log(2323); alert("3723");}
-        }
-      )
-    })
+      chrome.scripting.executeScript({
+        target: { tabId: activeTabId },
+        function: () => {
+          main();
+        },
+      });
+    });
   }
 
   return (
