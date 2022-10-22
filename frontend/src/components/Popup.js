@@ -20,9 +20,6 @@ const Popup = (props) => {
 
   return (
     <>
-      <div className="md:col-span-2 border-t p-4">
-        <SpeedTest />
-      </div>
       <div className="p-4 flex items-center justify-center border-t md:border-l md:border-t-0">
         <Power value={60} />
       </div>

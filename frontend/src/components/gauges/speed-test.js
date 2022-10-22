@@ -12,7 +12,7 @@ const useSpeedTest = () => {
   });
 
   return {
-    value: 50
+    value: 0
   };
 };
 
@@ -84,12 +84,12 @@ function Speed(props) {
               cx: needle.base.cx,
               cy: needle.base.cy
             }}
-            r={6}
+            r={12}
           />
           <motion.line
             className="stroke-orange-400"
             strokeLinecap="round"
-            strokeWidth={4}
+            strokeWidth={8}
             animate={{
               x1: needle.base.cx,
               x2: needle.tip.cx,
@@ -97,6 +97,7 @@ function Speed(props) {
               y2: needle.tip.cy
             }}
           />
+          <circle className="fill-white" {...needle.base} r={4} />
         </g>
       </svg>
     </div>
