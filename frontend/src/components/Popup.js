@@ -107,6 +107,9 @@ const Popup = (props) => {
           <div className="flex items-center justify-center">
             <Power value={truthiness * 100} />
           </div>
+          <p className="truth-float">{`${
+            Math.round(truthiness * 10000) / 100
+          }%`}</p>
         </>
       )}
       <Form>
