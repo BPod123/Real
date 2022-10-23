@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Power } from "./gauges/power";
 import { Button, Form } from "react-bootstrap";
 import { SCALE_COLORS, TRUTH_STRING } from "../constants";
+import RetroVideo from "../assets/retro.mp4";
 
 const Popup = (props) => {
   const [truthiness, setTruthiness] = useState(-1);
@@ -88,6 +89,10 @@ const Popup = (props) => {
 
   return (
     <div id="popup" className="py-3 text-center my-auto">
+      <video autoPlay muted loop id="myVideo">
+        <source src={RetroVideo} type="video/mp4" />
+      </video>
+
       {truthiness === -1 ? (
         <h1 className="question mb-5">FakeNews Detector</h1>
       ) : (
