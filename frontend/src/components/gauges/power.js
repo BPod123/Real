@@ -33,9 +33,9 @@ export function Power(props) {
                   className={cc([
                     "stroke-gray-300",
                     {
-                      "stroke-green-300": asValue <= 20,
+                      "stroke-red-300": asValue <= 20,
                       "stroke-yellow-300": asValue >= 60 && asValue <= 80,
-                      "stroke-red-400": asValue >= 80,
+                      "stroke-green-400": asValue >= 80,
                     },
                   ])}
                   strokeWidth={2}
