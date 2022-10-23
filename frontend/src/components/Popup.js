@@ -79,12 +79,12 @@ const Popup = (props) => {
   }
 
   return (
-    <div id="popup" className="py-3 text-center">
+    <div id="popup" className="py-3 text-center my-auto">
       {truthiness === -1 ? (
         <h1 className="question">FakeNews Detector</h1>
       ) : (
         <>
-          <p className="opening">This phrase is likely</p>
+          <p className="opening mb-2">This phrase is likely</p>
           <div
             className="verdict mx-auto p-2 m-1"
             style={{ backgroundColor: truthColor }}
@@ -98,13 +98,13 @@ const Popup = (props) => {
       )}
       <Form>
         <Form.Control
-          className="phrase-input mx-auto my-3"
+          className="phrase-input mx-auto my-4"
           id="phrase-input"
-          size="sm"
+          size="lg"
           placeholder="Enter phrase"
           type="text"
           onBlur={(e) => setPhrase(e.target.value)}
-          maxLength={50 * 6} // max 50 words
+          maxLength={50 * 10} // max 50 words
         />
       </Form>
       <Button className="submit" onClick={test_web_app}>
