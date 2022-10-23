@@ -3,7 +3,7 @@ A news headline truthiness detector using NLP
 
 > Authors: Ben Podrazhansky, Faris Durrani, Lucas Zhang, Shriya Edukulla <br/>
 > Implemented: Oct 21-23, 2022 <br/>
-> For: HackGT 2022
+> For: HackGT 2022 ([Devpost](https://devpost.com/software/real-o8jes7))
 
 ## How to Run
 Full functionality requires both the React frontend and Python backend to run, in addition to disabling CORS ([example extension](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en))
