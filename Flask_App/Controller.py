@@ -79,6 +79,7 @@ class Controller(object):
 
     def handleConnection(self, connectionSocket, addr):
         data = connectionSocket.recv(1024).decode()
+        print("Connection added")
         breakpoint()
         headline = data['text']
         result = self.evaluate_headline(headline)

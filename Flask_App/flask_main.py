@@ -1,6 +1,6 @@
 from flask import Flask
 import socket
-
+from Controller import Controller
 from flask import request
 
 # @app.route("/newsHeadline", methods=["POST"])
@@ -21,9 +21,8 @@ def fakeNewsDetection():
 @app.route('/header', methods = ['POST'])
 def get_query_from_react():
     print("283789273827", request.data)
-    data = request.form
-    print(data)
     return request.data
 
 if __name__ == "__main__":
+    
     app.run(debug=True, host="0.0.0.0", port=8000)

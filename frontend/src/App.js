@@ -1,3 +1,5 @@
+/*global chrome*/
+
 import logo from "./logo.svg";
 import "./App.css";
 // import "./external_css/tailwinds";
