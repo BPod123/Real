@@ -1,7 +1,8 @@
 from flask import Flask
 import socket
-from Controller import Controller
+from Flask_App.Controller import Controller
 from flask import request
+import json
 
 # @app.route("/newsHeadline", methods=["POST"])
 # def fakeNewsDetection():
@@ -12,6 +13,8 @@ from flask_cors import CORS;
 app = Flask(__name__, static_url_path='')
 CORS(app)
 
+C = Controller()
+
 @app.route("/test", methods=["GET"])
 def fakeNewsDetection():
     # headline = request.json['title']
@@ -20,9 +23,10 @@ def fakeNewsDetection():
 
 @app.route('/header', methods = ['POST'])
 def get_query_from_react():
-    print("283789273827", request.data)
-    return request.data
+    phrase = json.loads(request.data)["phrase"]
+    print("283789273827", type(phrase), phrase)
+    truthiness = C.evaluate_headline(phrase)
+    return json.dumps({"Truthiness": 1 - truthiness}, indent = 4) 
 
 if __name__ == "__main__":
-    
     app.run(debug=True, host="0.0.0.0", port=8000)
