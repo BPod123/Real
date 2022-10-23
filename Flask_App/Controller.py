@@ -61,6 +61,26 @@ class Controller(object):
         text = re.sub(" {2,}", " ", text).strip()
         return text
 
+<<<<<<< HEAD
+=======
+    def run(self):
+        Thread(target=self.acceptConnections).start()
+
+    def acceptConnections(self):
+        self.socket.listen(10)
+        while True:
+            connectionSocket, addr = socket.accept()
+            Thread(target=self.handleConnection, args=(connectionSocket, addr)).start()
+
+    def handleConnection(self, connectionSocket, addr):
+        data = connectionSocket.recv(1024).decode()
+        print("Connection added")
+        breakpoint()
+        headline = data['text']
+        result = self.evaluate_headline(headline)
+        breakpoint()
+
+>>>>>>> 55a789099abf5a93752257d44de14fdb7e2d47da
 if __name__ == '__main__':
     c = Controller()
     result = c.evaluate_headline("The sky is falling!")
