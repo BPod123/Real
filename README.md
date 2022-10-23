@@ -1,4 +1,4 @@
-# Real
+# Real?
 A news headline truthiness detector using NLP
 
 > Authors: Ben Podrazhansky, Faris Durrani, Lucas Zhang, Shriya Edukulla <br/>
@@ -19,3 +19,9 @@ To run the backend (after installing all pip requirements):
 ```
 python -m Flask_App.flask_main
 ```
+
+# License
+
+*Real?* is MIT licensed, as found in the [LICENSE](./LICENSE) file.
+
+*Real?* documentation is Creative Commons licensed, as found in the [LICENSE-docs](./.github/LICENSE-docs) file.
