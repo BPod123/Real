@@ -6,7 +6,7 @@ import { SCALE_COLORS, TRUTH_STRING } from "../constants";
 
 const Popup = (props) => {
   const [truthiness, setTruthiness] = useState(-1);
-  const [phrase, setPhrase] = useState("DEFAULT");
+  const [phrase, setPhrase] = useState("");
   const truthColor = SCALE_COLORS[Math.floor(truthiness * SCALE_COLORS.length)];
 
   // function test() {
@@ -78,10 +78,18 @@ const Popup = (props) => {
     }
   }
 
+  function enterKeyPressed(event) {
+    if (event.keyCode == 13) {
+      event.preventDefault();
+      console.log("Enter key is pressed");
+      test_web_app();
+    }
+  }
+
   return (
     <div id="popup" className="py-3 text-center my-auto">
       {truthiness === -1 ? (
-        <h1 className="question">FakeNews Detector</h1>
+        <h1 className="question mb-5">FakeNews Detector</h1>
       ) : (
         <>
           <p className="opening mb-2">This phrase is likely</p>
@@ -103,8 +111,10 @@ const Popup = (props) => {
           size="lg"
           placeholder="Enter phrase"
           type="text"
-          onBlur={(e) => setPhrase(e.target.value)}
+          value={phrase}
+          onChange={(e) => setPhrase(e.target.value)}
           maxLength={50 * 10} // max 50 words
+          onKeyDown={enterKeyPressed}
         />
       </Form>
       <Button className="submit" onClick={test_web_app}>
