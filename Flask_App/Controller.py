@@ -1,4 +1,3 @@
-import socket
 import json
 from Model.NBOW import NBOW
 import os
@@ -7,16 +6,10 @@ from torch.nn.utils.rnn import pad_sequence
 import re
 import html
 import nltk
-from threading import Thread
 
 
 class Controller(object):
-    def __init__(self, port):
-        self.port = port
-        self.socket = socket.socket()
-        ipaddress = socket.gethostbyname(socket.gethostname())
-        self.socket.bind((ipaddress, self.port))
-
+    def __init__(self):
         # Get the repo root directory path
         workingDir = os.getcwd()
         baseName = os.path.basename(workingDir)
@@ -68,24 +61,8 @@ class Controller(object):
         text = re.sub(" {2,}", " ", text).strip()
         return text
 
-    def run(self):
-        Thread(target=self.acceptConnections).start()
-
-    def acceptConnections(self):
-        self.socket.listen(10)
-        while True:
-            connectionSocket, addr = socket.accept()
-            Thread(target=self.handleConnection, args=(connectionSocket, addr)).start()
-
-    def handleConnection(self, connectionSocket, addr):
-        data = connectionSocket.recv(1024).decode()
-        breakpoint()
-        headline = data['text']
-        result = self.evaluate_headline(headline)
-        breakpoint()
-
 if __name__ == '__main__':
-    c = Controller(6000)
+    c = Controller()
     result = c.evaluate_headline("The sky is falling!")
     fake_headlines = [
         "Pentagon Warns Chinese Landmass Could Break Off And Zoom Across The Ocean To Get Us",
