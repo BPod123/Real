@@ -6,7 +6,7 @@ A news headline truthiness detector using NLP
 > For: HackGT 2022
 
 ## How to Run
-Full functionality requires both the React frontend and Python backend to run.
+Full functionality requires both the React frontend and Python backend to run, in addition to disabling CORS ([example extension](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en))
 
 To run the frontend:
 ```
